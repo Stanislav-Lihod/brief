@@ -1,11 +1,13 @@
 export const Page2 = {
   namespaced: true,
   state: () => ({
-    'general info':'',
-    'target audience':'',
-    'problem solve':'',
-    'questions and queries':'',
-    'goals':[],
+    result:{
+      'general info':'',
+      'target audience':'',
+      'problem solve':'',
+      'questions and queries':'',
+      'goals':[],
+    },
     title: 'The target audience',
     description: 'Tell us about the audience of potential consumers of your product or service.',
     fields:[
@@ -41,7 +43,12 @@ export const Page2 = {
   }),
   mutations:{
     setValue(state, payload){
-      state[payload.name] = payload.value
+      state.result[payload.name] = payload.value
     },
+    setCheckedArray(state, payload){
+      state.result[payload.name].includes(payload.value) 
+      ? state.result[payload.name] = state.result[payload.name].filter(e => e !== payload.value) 
+      : state.result[payload.name].push(payload.value)
+    }
   },
 }

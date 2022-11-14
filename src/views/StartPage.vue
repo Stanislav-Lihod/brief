@@ -5,41 +5,17 @@
       <div class="form__title">{{$store.state.titleCurrentPage}}</div>
       <div class="form__description">{{$store.state.descriptionCurrentPage}}</div>
       <div v-for="item in $store.state[$store.state.pageModule].fields" :key="item.id">
-        <my-input 
-          v-if="item.type !== 'rangeSlider' && item.type !== 'checkbox'  && item.type !== 'textarea'" 
-          :type="item.type" 
-          :required="item.required" 
-          :name="item.name" 
-          :placeholder="item.placeholder"
-          :model-value="`${$store.state[$store.state.pageModule][item.name]}`"  
-          @update:model-value="$store.commit(`${$store.state.pageModule}/setValue`,{name: item.name, value: $event})"
-        />        
 
-        <range-slider
-          v-else-if="item.type === 'rangeSlider'"
-          :style="{margin: '48px 0'}"
-          :name="item.name"
-          v-model:numbersDays="numbersDays" 
-          :max='item.max'
-          :min='1'
-          :tooltip='true'
-          :label="item.label"
-          @update:numbersDays="$store.commit(`${$store.state.pageModule}/setValue`,{name: item.name, value: $event})"
-        />
-          
-        <div v-else-if="item.type === 'checkbox'">
-          <div v-for="checkbox in item.values" :key="checkbox">
-            <input v-model="checkedNames" :type="item.type" :id="checkbox" name="vehicle1" :value="checkbox">
-            <label :for="checkbox"> {{checkbox}}</label>
-          </div>
-        </div>
+        <my-input v-if="item.type === 'text' || item.type === 'email'  || item.type === 'password' || item.type === 'number'" :item="item"/>        
 
-        <my-textarea 
-          v-else-if="item.type='textarea'"
-          :placeholder="item.placeholder"
-          :model-value="`${$store.state[$store.state.pageModule][item.name]}`"  
-          @update:model-value="$store.commit(`${$store.state.pageModule}/setValue`,{name: item.name, value: $event})"
-        ></my-textarea>
+        <range-slider v-else-if="item.type === 'rangeSlider'" :item="item" :style="{margin: '48px 0'}"/>
+
+        <my-radio v-else-if="item.type === 'radio'" :item="item"/>
+
+        <my-checkbox v-else-if="item.type === 'checkbox'" :item="item"/>
+
+        <my-textarea v-else-if="item.type='textarea'" :item="item"/>
+        
       </div> 
     </div>
     <ManagmentStatus/>
@@ -49,14 +25,13 @@
 <script>
 import RangeSlider from '@/ui/RangeSlider.vue'
 import ManagmentStatus from '../components/Status/ManagmentStatus.vue'
-import { mapActions, mapMutations } from 'vuex'
+import MyCheckbox from '@/ui/MyCheckbox.vue'
 
   export default {
-    components: { ManagmentStatus, RangeSlider },
+    components: { ManagmentStatus, RangeSlider, MyCheckbox },
     data(){
       return{
         numbersDays: 1,
-        checkedNames: [],
       }
     },
     watch:{

@@ -38,8 +38,14 @@ body{
   padding: 0 20px;
 }
 
-.vue3-slider .handle{
-  transform: scale(5) !important;
+.vue3-slider {
+  .handle{
+    transform: scale(5) !important;
+  }
+  .tooltip{
+    display: block !important;
+    transition: none !important;
+  }
 }
 
 .label-heading{
@@ -48,6 +54,8 @@ body{
   line-height: 24px;
   font-weight: 700;
   color: #F1931B;
+  margin-top: 64px;
+  margin-bottom: 32px;
 }
 
 </style>

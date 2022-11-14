@@ -14,19 +14,6 @@ export default createStore({
     titleCurrentPage:'',
     descriptionCurrentPage:'',
     pageModule: 'Page1',
-    bodyList:{
-      'name': '',
-      'email': '',
-      'company name': '',
-      'website': '',
-      'counter days': '',
-      'budget': '',
-      'general info': '',      
-      'target audience': '',      
-      'problem solve': '',      
-      'questions and queries': '',      
-      'goals': '',      
-    },
   },
   getters: {
   },
@@ -48,7 +35,16 @@ export default createStore({
       }
     },
     sendList(state){
-      console.log(JSON.stringify(state.bodyList));
+      const body = {}
+      for (let i = 1; i <= state.maxPagePosition; i++){
+        const currentPage = state[`Page${i}`].result
+        for (const key in currentPage) {
+          if (currentPage[key] && currentPage[key] != '') {
+            body[key] ? body[key + Math.random() * 100] = currentPage[key] : body[key] = currentPage[key]
+          }
+        }
+      }
+      console.log(JSON.stringify(body));
     },
     setCheckbox(state, newValue){
       state.bodyList.goals = newValue

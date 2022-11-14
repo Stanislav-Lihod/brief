@@ -1,12 +1,14 @@
 export const Page1 = {
   namespaced: true,
   state: () => ({
-    name: '',
-    email:'',
-    company: '',
-    website: '',
-    timing: 1,
-    budget: '',
+    result:{
+      name: '',
+      email:'',
+      company: '',
+      website: '',
+      timing: 1,
+      budget: '',
+    },
     title: 'Introduction',
     description: 'A little introductory information that will help us make the right commercial offer, depending on the budget and timing of the project.',
     fields:[
@@ -47,7 +49,7 @@ export const Page1 = {
   }),
   mutations:{
     setValue(state, payload){
-      state[payload.name] = payload.value
+      state.result[payload.name] = payload.value
     },
   }
 }

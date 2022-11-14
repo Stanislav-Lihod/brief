@@ -1,13 +1,20 @@
 <template>
-  <input :value="modelValue" @input="this.$emit('update:modelValue', $event.target.value)">
+  <input 
+  :type="item.type" 
+  :required="item.required" 
+  :name="item.name" 
+  :placeholder="item.placeholder"
+  :value="`${$store.state[$store.state.pageModule].result[item.name]}`" 
+  @input="$store.commit(`${$store.state.pageModule}/setValue`,{name: item.name, value: $event.target.value})"
+  >
 </template>
 
 <script>
   export default {
     name: 'my-input',
     props:{
-      modelValue: {
-        type : [Number, String],
+      item: {
+        type : [Object],
         required: true
       }
     },

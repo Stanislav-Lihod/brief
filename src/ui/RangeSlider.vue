@@ -1,50 +1,44 @@
 <template>
   <div class="range-slider">
-    <div class="label-heading" v-if="label">{{label}}</div>
+    <div class="label-heading" v-if="item.label">{{item.label}}</div>
     
     <slider
-      v-model="numbersDays"
+      v-model="value"
       color="#F1931B"
       track-color="#E3E3E3"
-      :tooltip="tooltip"
+      :tooltip="true"
       tooltipColor="transparent"
       tooltipTextColor="#A1A0A0"
       tooltipText="%v day"
-      :max="max"
-      :min="min"
+      :max="item.max"
+      :min="1"
     />
 
-    <div class="range-slider__range"><span>1</span>{{max}}</div>
+    <div class="range-slider__range"><span>1</span>{{item.max}}</div>
     
   </div>
 </template>
 
 <script>
+import store from '@/store'
   import slider from 'vue3-slider'
 
   export default {
     components: { slider },
     props:{
-      max: {
-        type: Number
-      },
-      min: {
-        type: Number
-      },
-      tooltip: {
-        type: Boolean
-      },
-      numbersDays:{
-        type: [Number, String],
+      item: {
+        type : [Object],
         required: true
-      },
-      label:{
-        type: String
+      }
+    },
+    data(){
+      return{
+        value: 1
       }
     },
     watch:{
-      numbersDays(newValue){
-        this.$emit('update:numbersDays', newValue)
+      value(newValue){
+        store.commit(`${store.state.pageModule}/setValue`,{name: this.item.name, value: newValue})
       }
     }
   }
