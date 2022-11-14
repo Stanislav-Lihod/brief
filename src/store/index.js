@@ -34,6 +34,16 @@ export default createStore({
         state.descriptionCurrentPage = currentState.description
       }
     },
+    setValue(state, payload){
+      state[state.pageModule].result[payload.name] = payload.value
+    },
+    setArraySelectedValues(state, payload){
+      state[state.pageModule].result[payload.name].includes(payload.value) 
+      ? state[state.pageModule].result[payload.name] = state[state.pageModule].result[payload.name].filter(e => e !== payload.value) 
+      : state[state.pageModule].result[payload.name].push(payload.value)
+    },
+  },
+  actions: {
     sendList(state){
       const body = {}
       for (let i = 1; i <= state.maxPagePosition; i++){
@@ -45,12 +55,7 @@ export default createStore({
         }
       }
       console.log(JSON.stringify(body));
-    },
-    setCheckbox(state, newValue){
-      state.bodyList.goals = newValue
     }
-  },
-  actions: {
   },
   modules: {
     Page1: Page1,

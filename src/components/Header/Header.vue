@@ -3,18 +3,18 @@
     <div class="container header-content">
       <h1>Brief for development</h1>
       <p>Try to describe the task in as much detail as possible.</p>
-      <my-button @click="cosn" style="margin-top:8vw;">Go to brief</my-button>
+      <my-button @click="startQuiz" style="margin-top:8vw;">Go to brief</my-button>
     </div>
   </header>
 </template>
 
 <script>
-import MyButton from '@/ui/MyButton.vue'
   export default {
-  components: { MyButton },
   methods:{
-      cosn(){
-        console.log('object');
+    startQuiz(){
+        document.querySelector('.start-page__counter').scrollIntoView({ 
+          behavior: 'smooth' 
+        });
       }
     }    
   }

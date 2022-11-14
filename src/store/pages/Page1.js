@@ -46,10 +46,5 @@ export const Page1 = {
         type: 'text',
       },
     ]
-  }),
-  mutations:{
-    setValue(state, payload){
-      state.result[payload.name] = payload.value
-    },
-  }
+  })
 }

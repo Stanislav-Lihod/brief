@@ -32,6 +32,9 @@ import MyButton from '@/ui/MyButton.vue'
           this.$store.commit('setPagePosition', this.$store.state.pagePosition+1)
           this.$store.commit('setProgress')
           this.$store.commit('setInfo')
+          document.querySelector('.start-page__counter').scrollIntoView({ 
+            behavior: 'smooth' 
+          });
         } else{
           this.$store.commit('sendList')
         }
@@ -40,6 +43,9 @@ import MyButton from '@/ui/MyButton.vue'
         this.$store.commit('setPagePosition', this.$store.state.pagePosition-1)
         this.$store.commit('setProgress')
         this.$store.commit('setInfo')
+        document.querySelector('.start-page__counter').scrollIntoView({ 
+          behavior: 'smooth' 
+        });
       }
     },
     mounted(){
@@ -70,6 +76,7 @@ import MyButton from '@/ui/MyButton.vue'
       cursor: pointer;
       opacity: .5;
       transition: .3s;
+      padding: 20px 0;
 
       &:hover{
         opacity: 1;

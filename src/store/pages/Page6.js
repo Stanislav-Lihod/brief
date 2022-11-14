@@ -31,13 +31,5 @@ export const Page6 = {
         type: 'textarea',
       },
     ]
-  }),
-  mutations:{
-    setValue(state, payload){
-      state.result[payload.name] = payload.value
-    },
-    setCheckedRadio(state, payload){
-      state.result[payload.name] = payload.value
-    }
-  },
+  })
 }

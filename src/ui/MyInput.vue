@@ -5,7 +5,7 @@
   :name="item.name" 
   :placeholder="item.placeholder"
   :value="`${$store.state[$store.state.pageModule].result[item.name]}`" 
-  @input="$store.commit(`${$store.state.pageModule}/setValue`,{name: item.name, value: $event.target.value})"
+  @input="$store.commit('setValue',{name: item.name, value: $event.target.value})"
   >
 </template>
 

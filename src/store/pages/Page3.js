@@ -22,15 +22,5 @@ export const Page3 = {
         ]
       },
     ]
-  }),
-  mutations:{
-    setValue(state, payload){
-      state.result[payload.name] = payload.value
-    },
-    setCheckedArray(state, payload){
-      state.result[payload.name].includes(payload.value) 
-      ? state.result[payload.name] = state.result[payload.name].filter(e => e !== payload.value) 
-      : state.result[payload.name].push(payload.value)
-    }
-  },
+  })
 }

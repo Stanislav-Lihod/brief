@@ -2,7 +2,7 @@
   <div class="checkbox-container">
     <div class="label-heading" v-if="item.label" style="margin-bottom:32px">{{item.label}}</div>
     <div class="checkbox" v-for="checkbox in item.values" :key="checkbox">
-      <input @change="$store.commit(`${$store.state.pageModule}/setCheckedArray`, {name: item.name ,value: $event.target.value})" :type="item.type" :id="item.label + checkbox" :name="item.label" :value="checkbox">
+      <input @change="$store.commit('setArraySelectedValues', {name: item.name ,value: $event.target.value})" :type="item.type" :id="item.label + checkbox" :name="item.label" :value="checkbox">
       <label 
         @click="$event.target.classList.toggle('checked')" 
         :for="item.label + checkbox"

@@ -38,7 +38,7 @@ import store from '@/store'
     },
     watch:{
       value(newValue){
-        store.commit(`${store.state.pageModule}/setValue`,{name: this.item.name, value: newValue})
+        store.commit('setValue',{name: this.item.name, value: newValue})
       }
     }
   }
