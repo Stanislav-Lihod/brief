@@ -9,40 +9,64 @@ export const Page1 = {
       timing: 1,
       budget: '',
     },
-    title: 'Introduction',
-    description: 'A little introductory information that will help us make the right commercial offer, depending on the budget and timing of the project.',
+    title: {
+      en: 'Introduction',
+      ru: 'Введение',
+    },
+    description: {
+      en: 'A little introductory information that will help us make the right commercial offer, depending on the budget and timing of the project.',
+      ru: 'Небольшая вводная информация, которая поможет нам составить правильное коммерческое предложение в зависимости от бюджета и сроков реализации проекта.',
+    },
     fields:[
       { 
         name: 'name',
-        placeholder: 'Name',
+        placeholder: {
+          en: 'Name',
+          ru: 'Имя',
+        },
         type: 'text',
         required: true
       },
       { 
         name: 'email',
-        placeholder: 'Email',
+        placeholder: {
+          en: 'Email',
+          ru: 'Email',
+        },
         type: 'email',
         required: true
       },
       {
         name: 'company',
-        placeholder: 'Company Name',
+        placeholder: {
+          en: 'Company Name',
+          ru: 'Название компании',
+        },
         type: 'text',
       },
       {
         name: 'website',
-        placeholder: 'Your company website, if any',
+        placeholder: {
+          en: 'Your company website, if any',
+          ru: 'Веб сайт вашей компании',
+        },
         type: 'text',
       },
       {
-        label: 'Timing',
+        label: {
+          en: 'Timing',
+          ru: 'Время'
+        },
         name: 'timing',
         max: 365,
         type: 'rangeSlider',
       },
       {
         name: 'budget',
-        placeholder: 'Estimated project budget',
+        placeholder: {
+          en: 'Estimated project budget',
+          ru: 'Запланированный бюджет проекта',
+        },
         type: 'text',
       },
     ]

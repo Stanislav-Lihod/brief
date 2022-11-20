@@ -8,7 +8,10 @@
 import Header from './components/Header/Header.vue';
 import Footer from './components/Footer/Footer.vue';
   export default {
-    components: { Header, Footer }
+    components: { Header, Footer },
+    mounted(){
+      this.$store.commit('setLocale')
+    }
 }
 </script>
 
@@ -25,6 +28,7 @@ import Footer from './components/Footer/Footer.vue';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  position: relative;
 }
 
 body{
@@ -36,6 +40,7 @@ body{
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
 }
 
 .vue3-slider {
@@ -46,16 +51,6 @@ body{
     display: block !important;
     transition: none !important;
   }
-}
-
-.label-heading{
-  text-align: left;
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: 700;
-  color: #F1931B;
-  margin-top: 64px;
-  margin-bottom: 32px;
 }
 
 </style>

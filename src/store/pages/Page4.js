@@ -8,48 +8,74 @@ export const Page4 = {
       'form style':[],
       'customer reviews':[],
     },
-    title: 'Materials',
-    description: 'What do you already have',
+    title: {
+      en: 'Materials',
+      ru: 'Материалы',
+    },
+    description: {
+      en: 'What do you already have',
+      ru: 'Что у Вас уже есть',
+    },
     fields:[
       { 
         name: 'prorotype',
-        label: 'Prorotype',
+        label: {
+          en: 'Prorotype',
+          ru: 'Прототип',
+        },
         type: 'checkbox',
-        values:[
-          'There are outlines', 'Professional'
-        ]
+        values:{
+          en: ['There are outlines', 'Professional'],
+          ru: ['Есть очертания', 'Профессионал']
+        }
       },
       { 
         name: 'photographic materials',
-        label: 'Photographic materials',
+        label: {
+          en: 'Photographic materials',
+          ru: 'Фотоматериалы',
+        },
         type: 'checkbox',
-        values:[
-          'Will be provided', 'Not used on the site', 'Must be selected from sources'
-        ]
+        values:{
+          en:['Will be provided', 'Not used on the site', 'Must be selected from sources'],
+          ru:['Будет предоставлено', 'Не используется на сайте', 'Должно быть выбрано из источников'],
+        }
       },
       { 
         name: 'copywriting',
-        label: 'Copywriting',
+        label: {
+          en: 'Copywriting',
+          ru: 'Копирайтинг'
+        },
         type: 'checkbox',
-        values:[
-          'There is a ready text', 'There is text from the old site', 'Need to write text'
-        ]
+        values:{
+          en:['There is a ready text', 'There is text from the old site', 'Need to write text'],
+          ru:['Есть готовый текст', 'Есть текст со старого сайта', 'Нужно написать текст']
+        }
       },
       { 
         name: 'form style',
-        label: 'Form style',
+        label: {
+          en: 'Form style',
+          ru: 'Стиль формы',
+        },
         type: 'checkbox',
-        values:[
-          'Will be provided', 'Missing'
-        ]
+        values:{
+          en:['Will be provided', 'Missing'],
+          ru:['Будут предоставлены', 'Отсутствующий']
+        }
       },
       { 
         name: 'customer reviews',
-        label: 'Customer Reviews',
+        label: {
+          en:'Customer Reviews',
+          ru:'Отзывы клиентов',
+        },
         type: 'checkbox',
-        values:[
-          'Available', 'Missing'
-        ]
+        values:{
+          en: ['Available', 'Missing'],
+          ru: ['Доступный', 'Отсутствующий'],
+        }
       },
     ]
   })

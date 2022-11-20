@@ -1,0 +1,51 @@
+@keyframes planetMotion {
+  0%{transform: translateY(0);}
+  50%{transform: translateY(60px) scale(.92);}
+  100%{transform: translateY(0);}
+}
+
+@keyframes planetMotionReverse {
+  0%{transform: translateY(0);}
+  50%{transform: translateY(-60px) scale(.92);}
+  100%{transform: translateY(0);}
+}
+
+@keyframes planetMotionLong {
+  0%{transform: translateY(0);}
+  50%{transform: translateY(260px) scale(.90) rotate(30deg);}
+  100%{transform: translateY(0);}
+}
+
+.planet{
+  &-container{
+    max-width: 1800px;
+    position: absolute;
+    height: 250px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -58px;
+  }
+
+  &__one{
+    position: absolute;
+    right: 5px;
+    top: 175px;
+    animation: planetMotion 9s infinite ease;
+  }
+
+  &__second{
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    height: 12.7vw;
+    min-height: 150px;
+    animation: planetMotionReverse 10s infinite ease;
+  }
+
+  &__three{
+    position: absolute;
+    right: 20px;
+    animation: planetMotionLong 25s infinite ease;
+  }
+}

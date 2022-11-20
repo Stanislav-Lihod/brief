@@ -5,21 +5,34 @@ export const Page3 = {
       'list landing pages': '',
       'features':[],
     },    
-    title: 'Technical requirements',
-    description: 'Answer technical questions about the project.',
+    title: {
+      en: 'Technical requirements',
+      ru: 'Технические требования',
+    },
+    description: {
+      en: 'Answer technical questions about the project.',
+      ru: 'Отвечать на технические вопросы по проекту.',
+    },
     fields:[
       {
         name:'list landing pages',
-        placeholder:'List all landing page blocks which must be present',
+        placeholder:{
+          en:'List all landing page blocks which must be present',
+          ru:'Перечислите все блоки целевой страницы, которые должны присутствовать',
+        },
         type:'textarea'
       },
       { 
         name: 'features',
-        label: 'Functional features',
+        label: {
+          en: 'Functional features',
+          ru: 'Функциональные особенности',
+        },
         type: 'checkbox',
-        values:[
-          'Multilingual', 'Calculator', 'Quiz'
-        ]
+        values:{
+          en: ['Multilingual', 'Calculator', 'Quiz'],
+          ru: ['Многоязычный', 'Калькулятор', 'Опрос'],
+        }
       },
     ]
   })

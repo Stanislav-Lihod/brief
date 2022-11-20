@@ -1,13 +1,19 @@
 <template>
   <div class="footer">
     <div class="container">
-      <h3>Contact</h3>
-      <p>If you have any questions, we can contact you</p>
+      <h3>{{$t('footerTitle')}}</h3>
+      <p>{{$t('footerDescription')}}</p>
     </div>
   </div>
   <footer>
     <div class="container">
       <a href="mailto:tatka.d98@gmail.com" class="email">tatka.d98@gmail.com</a>
+      <div class="social">
+        <a href="#"><img src="@/assets/img/social/linkedin.svg" alt="linkedin"></a>
+        <a href="#"><img src="@/assets/img/social/instagram.svg" alt="linkedin"></a>
+        <a href="#"><img src="@/assets/img/social/telegram.svg" alt="linkedin"></a>
+        <a href="#"><img src="@/assets/img/social/behance.svg" alt="linkedin"></a>
+      </div>
     </div>
   </footer>
 </template>
@@ -34,6 +40,28 @@ footer{
     font-size: 48px;
     line-height: 72px;
     text-decoration: none;
+
+    // @media #{$mediaSmallQuery} {
+    //   font-size:20px;
+    // }
+  }
+
+  .social{
+    margin-top: 48px;
+    margin-bottom: 72px;
+
+    a{
+      margin-right: 20px;
+      transition: .3s;
+
+      &:last-child{
+        margin-right: 0;
+      }
+
+      &:hover{
+        opacity: 0.7;
+      }
+    }
   }
 }
 

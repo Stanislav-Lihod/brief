@@ -1,7 +1,7 @@
 <template>
   <div class="range-slider">
-    <div class="label-heading" v-if="item.label">{{item.label}}</div>
     
+    <label-heading v-if="item.label" :label="item.label"/>
     <slider
       v-model="value"
       color="#F1931B"
@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import store from '@/store'
   import slider from 'vue3-slider'
 
   export default {
@@ -38,7 +37,7 @@ import store from '@/store'
     },
     watch:{
       value(newValue){
-        store.commit('setValue',{name: this.item.name, value: newValue})
+        this.$store.commit('setValue',{name: this.item.name, value: newValue})
       }
     }
   }
@@ -58,5 +57,6 @@ import store from '@/store'
     margin-top: 24px;
     opacity: .5;
   }
+  
 }
 </style>

@@ -3,7 +3,7 @@
   :type="item.type" 
   :required="item.required" 
   :name="item.name" 
-  :placeholder="item.placeholder"
+  :placeholder="item.placeholder[$store.state.locales.currentLocale] ? item.placeholder[$store.state.locales.currentLocale] : item.placeholder['en']"
   :value="`${$store.state[$store.state.pageModule].result[item.name]}`" 
   @input="$store.commit('setValue',{name: item.name, value: $event.target.value})"
   >

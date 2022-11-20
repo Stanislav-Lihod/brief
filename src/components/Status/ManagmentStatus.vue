@@ -2,7 +2,7 @@
   <div class="managment-status">
     <div class="managment-status__managment">
       <my-button @click="nextState" style="margin-right:48px;">{{nextBtnText}}</my-button>
-      <div v-if="$store.state.pagePosition > 1" class="managment-status__managment-back" @click="prevState">Сome back</div>
+      <div v-if="$store.state.pagePosition > 1" class="managment-status__managment-back" @click="prevState">{{$t('managmentButtonComeBack')}}</div>
     </div>
     <div class="managment-status__status">
       <div class="managment-status__status-progress">
@@ -36,7 +36,7 @@ import MyButton from '@/ui/MyButton.vue'
             behavior: 'smooth' 
           });
         } else{
-          this.$store.commit('sendList')
+          this.$store.dispatch('sendList')
         }
       },
       prevState(){
@@ -54,9 +54,9 @@ import MyButton from '@/ui/MyButton.vue'
     computed:{
       nextBtnText(){
         if (this.$store.state.pagePosition === this.$store.state.maxPagePosition){
-          return 'Send Email'
+          return this.$t('managmentButtonSendEmail')
         }
-        return 'Next'
+        return this.$t('managmentButtonNext')
       }
     }
   }

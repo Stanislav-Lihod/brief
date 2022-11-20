@@ -1,4 +1,5 @@
 <template>
+  <div class="planet-container" :style="{top: '50%'}"><img src="@/assets/img/planet/planet_3.svg" alt="planet" class="planet__three"></div>
   <div class="container start-page">
     <div class="start-page__counter">0{{$store.state.pagePosition}}</div>
     <div class="form">
@@ -25,20 +26,9 @@
 <script>
 import RangeSlider from '@/ui/RangeSlider.vue'
 import ManagmentStatus from '../components/Status/ManagmentStatus.vue'
-import MyCheckbox from '@/ui/MyCheckbox.vue'
 
   export default {
-    components: { ManagmentStatus, RangeSlider, MyCheckbox },
-    data(){
-      return{
-        numbersDays: 1,
-      }
-    },
-    watch:{
-      checkedNames(newValue){
-        this.$store.commit('setCheckbox', newValue)
-      }
-    },
+    components: { ManagmentStatus, RangeSlider },
     mounted(){
       this.$store.commit('setInfo')
     },

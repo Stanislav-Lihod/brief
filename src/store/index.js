@@ -14,6 +14,10 @@ export default createStore({
     titleCurrentPage:'',
     descriptionCurrentPage:'',
     pageModule: 'Page1',
+    locales:{
+      currentLocale: localStorage.getItem('locale') ?? 'en',
+      possibleLocales: ['en', 'ru']
+    }
   },
   getters: {
   },
@@ -30,8 +34,8 @@ export default createStore({
       const currentState = state[`Page${state.pagePosition}`]
       if (currentState) {
         state.pageModule = `Page${state.pagePosition}`
-        state.titleCurrentPage = currentState.title
-        state.descriptionCurrentPage = currentState.description
+        state.titleCurrentPage = currentState.title[state.locales.currentLocale] 
+        state.descriptionCurrentPage = currentState.description[state.locales.currentLocale] 
       }
     },
     setValue(state, payload){
@@ -42,9 +46,21 @@ export default createStore({
       ? state[state.pageModule].result[payload.name] = state[state.pageModule].result[payload.name].filter(e => e !== payload.value) 
       : state[state.pageModule].result[payload.name].push(payload.value)
     },
+    changeLocale(state, payload){
+      if (state.locales.currentLocale !== payload) {
+        localStorage.setItem('locale', payload)
+        state.locales.currentLocale = payload 
+        state.locales.possibleLocales = state.locales.possibleLocales.reverse() 
+        this.commit('setInfo')
+      }
+    },
+    setLocale(state){
+      localStorage.getItem('locale') ? state.locales.currentLocale = localStorage.getItem('locale') : null
+      if (state.locales.currentLocale === 'ru') state.locales.possibleLocales = state.locales.possibleLocales.reverse() 
+    }
   },
   actions: {
-    sendList(state){
+     sendList({state}){
       const body = {}
       for (let i = 1; i <= state.maxPagePosition; i++){
         const currentPage = state[`Page${i}`].result
@@ -54,8 +70,8 @@ export default createStore({
           }
         }
       }
-      console.log(JSON.stringify(body));
-    }
+     console.log(JSON.stringify(body));
+    },
   },
   modules: {
     Page1: Page1,

@@ -1,7 +1,7 @@
 <template>
   <div class="radio-container">
-    <div class="label-heading" v-if="item.label">{{item.label}}</div>
-    <div class="radio" v-for="radio in item.values" :key="radio">
+    <label-heading v-if="item.label" :label="item.label"/>
+    <div class="radio" v-for="radio in item.values[$store.state.locales.currentLocale] ? item.values[$store.state.locales.currentLocale]: item.values['en']" :key="radio">
       <input @change="$store.commit('setValue', {name: item.name ,value: $event.target.value})" :type="item.type" :id="radio" :name="item.label" :value="radio">
       <label 
         @click="checkingRadioButton" 

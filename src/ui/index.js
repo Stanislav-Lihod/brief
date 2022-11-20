@@ -3,6 +3,7 @@ import MyInput from '@/ui/MyInput'
 import MyTextarea from '@/ui/MyTextarea'
 import MyCheckbox from '@/ui/MyCheckbox'
 import MyRadio from '@/ui/MyRadio'
+import LabelHeading from '@/ui/LabelHeading'
 
 export default [
   MyButton,
@@ -10,4 +11,5 @@ export default [
   MyTextarea,
   MyCheckbox,
   MyRadio,
+  LabelHeading,
 ]

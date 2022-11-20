@@ -1,7 +1,11 @@
 <template>
-  <div class="label-heading" v-if="item.label">{{item.label}}</div>
+  <label-heading v-if="item.label" :label="item.label"/>
   <textarea 
-    :placeholder="item.placeholder"
+    :placeholder="item.placeholder 
+                  ? item.placeholder[$store.state.locales.currentLocale] 
+                    ? item.placeholder[$store.state.locales.currentLocale] 
+                    : item.placeholder['en']
+                  : null"
     :value="$store.state[$store.state.pageModule].result[item.name]" 
     @input="$store.commit('setValue',{name: item.name, value: $event.target.value})"
     ></textarea>
