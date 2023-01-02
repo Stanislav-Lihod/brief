@@ -15,6 +15,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
 .label-heading{
   text-align: left;
   font-size: 20px;
@@ -23,5 +24,10 @@
   color: #F1931B;
   margin-top: 64px;
   margin-bottom: 32px;
+
+  @media #{$mediaSmallQuery} {
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
 }
 </style>

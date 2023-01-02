@@ -1,11 +1,15 @@
 {
   "headerTitle": "Бриф на разработку",
+  "headerTitleTHP": "Ваше сообщение успешно отправлено",
   "headerDescription": "Постарайтесь максимально подробно описать задачу.",
+  "headerDescriptionTHP": "Я скоро свяжусь с вами. Спасибо",
   "headerButton": "Перейти к брифу",
+  "headerButtonRestart": "Вернуться к брифу",
   "managmentButtonNext": "Далее",
   "managmentButtonSendEmail": "Отправить Email",
   "managmentButtonComeBack": "Назад",
   "footerTitle": "Контакт",
   "development": "Разработка",
+  "sending": "Отправка...",
   "footerDescription": "Если у вас есть какие-либо вопросы, вы можете связаться со мной"
 }

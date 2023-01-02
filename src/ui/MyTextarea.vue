@@ -24,6 +24,8 @@
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
+
 textarea{
   width: 100%;
   min-height: 124px;
@@ -38,6 +40,11 @@ textarea{
   resize: none;
   padding: 24px;
   color: #022437;
+
+  @media #{$mediaSmallQuery} {
+    font-size: 14px;
+    padding: 12px;
+  }
 
   &:focus{
       box-shadow: 0px 0px 20px 4px rgba($color: #F1931B, $alpha: 0.3);

@@ -70,6 +70,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
 .range-slider{
   .label-heading{
     margin-bottom: 64px;
@@ -78,6 +79,10 @@
   &__container{
     width: 95%;
     margin: 0 auto;    
+
+    @media #{$mediaSmallQuery} {
+      width: 90%;
+    }
   }
 
   &__range{

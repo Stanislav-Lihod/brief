@@ -45,6 +45,8 @@
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
+
 input{
   &[type=text],
   &[type=email],
@@ -61,12 +63,21 @@ input{
     transition: .3s;
     color: #022437;
 
+    @media #{$mediaSmallQuery} {
+      font-size: 14px;
+      padding: 12px;
+    }
+
     &:focus{
       box-shadow: 0px 0px 20px 4px rgba($color: #F1931B, $alpha: 0.3);
     }
 
     &.required{
       box-shadow: 0px 0px 20px 4px rgba($color: #f1581b, $alpha: 0.6);
+
+      @media #{$mediaSmallQuery} {
+        box-shadow: 0px 0px 20px 4px rgba($color: #f1581b, $alpha: 0.6);
+      }
     }
   }
 }

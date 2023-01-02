@@ -16,9 +16,10 @@
         </div>
       </div>
       <div class="header-content">
-        <h1>{{$t('headerTitle')}}</h1>
-        <p>{{$t('headerDescription')}}</p>
-        <my-button @click="startQuiz" style="margin-top:8vw;" :class="{'rocket': true}">{{$t('headerButton')}}</my-button>
+        <h1>{{this.$route.path === '/thanks' ? $t('headerTitleTHP') : $t('headerTitle')}}</h1>
+        <p>{{this.$route.path === '/thanks' ? $t('headerDescriptionTHP') : $t('headerDescription')}}</p>
+        <my-button @click="startQuiz" style="margin-top:8vw;" :class="{'rocket': true}">
+          {{this.$route.path === '/thanks' ? $t('headerButtonRestart') : $t('headerButton')}}</my-button>
       </div>
     </div>
   </header>
@@ -28,6 +29,9 @@
 export default {
   methods:{
     startQuiz(){
+      if (this.$route.path === '/thanks'){
+        return this.$router.push('/')
+      }
       document.querySelector('.start-page__counter').scrollIntoView({ 
         behavior: 'smooth' 
       });
@@ -41,7 +45,7 @@ export default {
     reversedLocales() {
       return this.$store.state.locales.possibleLocales.slice().reverse();
     },
-  }  
+  }
 }
 </script>
 
@@ -57,7 +61,7 @@ header{
   position: relative;
 
   @media #{$mediaSmallQuery} {
-    height: 180vw;
+    height: 150vw;
     max-height: 846px;
   }
 
@@ -123,7 +127,7 @@ header{
       position: relative;
 
       @media #{$mediaSmallQuery} {
-        padding-top: 50vw;
+        padding-top: 40vw;
       }
 
       h1{
@@ -136,6 +140,7 @@ header{
         @media #{$mediaSmallQuery} {
           font-size: 30px;
           line-height: 35px;
+          margin-bottom: 24px;
         }
       }
 
@@ -145,7 +150,7 @@ header{
         color: #F1931B;
 
         @media #{$mediaSmallQuery} {
-          font-size: 20px;
+          font-size: 16px;
           line-height: 24px;
         }
       }
@@ -157,6 +162,10 @@ html[lang='ru'] h1{
   font-family: 'Breaf', sans-serif;
   font-size: 100px;
   line-height: 1.1;
+
+  @media #{$mediaSmallQuery} {
+    font-size: 10vw;
+  }
 }
 html[lang='en'] h1{
   font-family: 'Anton', sans-serif;

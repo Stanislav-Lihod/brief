@@ -32,6 +32,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
 .radio-container{
   display: flex;
   flex-direction: column;
@@ -58,6 +59,10 @@
     line-height: 24.3px;
     text-align: left;
     cursor: pointer;
+
+    @media #{$mediaSmallQuery} {
+      font-size: 16px;
+    }
 
     &::before{
       content: '';

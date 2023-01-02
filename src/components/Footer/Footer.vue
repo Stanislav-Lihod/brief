@@ -39,6 +39,10 @@ footer{
   display: flex;
   align-items: flex-end;
 
+  @media #{$mediaSmallQuery} {
+    height: 65vw;
+  }
+
   .email{
     font-family: 'Anton', sans-serif;
     color: #022437;
@@ -56,6 +60,11 @@ footer{
     font-weight: 700;
     margin-bottom: 20px;
 
+    @media #{$mediaSmallQuery} {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
     a{
       color: #022437;
 
@@ -67,6 +76,11 @@ footer{
   .social{
     margin-top: 48px;
     margin-bottom: 72px;
+
+    @media #{$mediaSmallQuery} {
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
 
     a{
       margin-right: 20px;
@@ -87,6 +101,10 @@ footer{
   margin-top: 200px;
   margin-bottom: 34px;
 
+  @media #{$mediaSmallQuery} {
+    margin-top: 12vw;
+  }
+
   h3{
     color: #F1931B;
     font-size: 44px;
@@ -97,6 +115,11 @@ footer{
   p{
     font-size: 32px;
     line-height: 39px;
+
+    @media #{$mediaSmallQuery} {
+      font-size: 14px;
+      line-height: 24px;
+    }
   }
 }
 
@@ -105,6 +128,10 @@ html[lang='ru'] h3{
   text-shadow: 1px 1px 8px rgb(0 0 0 / 40%);
   letter-spacing: 2px;
   font-size: 50px;
+
+  @media #{$mediaSmallQuery} {
+    font-size: 7vw;
+  }
 }
 html[lang='en'] h3{
   font-family: 'Anton', sans-serif;

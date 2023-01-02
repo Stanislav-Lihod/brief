@@ -4,7 +4,7 @@
 
 <script>
   export default {
-    name: 'my-button'
+    name: 'my-button',
   }
 </script>
 
@@ -25,8 +25,13 @@ button{
   position: relative;
 
   @media #{$mediaSmallQuery} {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
+    padding: 14px;
+  }
+
+  &:disabled{
+    opacity: .5;
   }
 
   &:hover{
@@ -46,6 +51,10 @@ button{
       right: -25px;
       top: -25px;
       transform: rotate(-30deg);
+
+      @media #{$mediaSmallQuery} {
+        transform: rotate(-30deg) scale(0.7);
+      }
     }
   }
 }

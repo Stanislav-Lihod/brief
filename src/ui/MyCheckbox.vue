@@ -55,6 +55,7 @@
 
     @media #{$mediaSmallQuery} {
       align-items: flex-start;
+      font-size: 16px;
     }
 
     &::before{

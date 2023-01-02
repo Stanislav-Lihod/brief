@@ -38,6 +38,7 @@ import ManagmentStatus from '../components/Status/ManagmentStatus.vue'
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
 .start-page{
   padding-top: 140px;
 
@@ -55,18 +56,33 @@ import ManagmentStatus from '../components/Status/ManagmentStatus.vue'
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  
+  @media #{$mediaSmallQuery} {
+    margin-bottom: 40px;
+  }
 
   &__title{
     font-size: 40px;
     line-height: 48px;
     margin-bottom: 32px;
     color: #F1931B;
+
+    @media #{$mediaSmallQuery} {
+      font-size: 20px;
+      line-height: 26px;
+    }
   }
 
   &__description{
     font-size: 32px;
     line-height: 39px;
     margin-bottom: 80px;
+
+    @media #{$mediaSmallQuery} {
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 48px;
+    }
   }
 }
 </style>

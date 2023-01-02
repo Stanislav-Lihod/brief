@@ -1,11 +1,15 @@
 {
   "headerTitle": "Brief for development",
+  "headerTitleTHP": "Your message has been successfully sent",
   "headerDescription": "Try to describe the task in as much detail as possible.",
+  "headerDescriptionTHP": "I will contact you shortly. Thanks.",
   "headerButton": "Go to brief",
+  "headerButtonRestart": "Go back to Brief",
   "managmentButtonNext": "Next",
   "managmentButtonSendEmail": "Send Email",
   "managmentButtonComeBack": "Come back",
   "footerTitle": "Contact",
   "development": "Development",
+  "sending": "Sending...",
   "footerDescription": "If you have any questions, we can contact you"
 }

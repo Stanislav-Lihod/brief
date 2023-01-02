@@ -1,11 +1,14 @@
 import { createStore } from 'vuex'
 import emailjs from '@emailjs/browser';
+import enLangDoc from '../translations/en.json'
+import ruLangDoc from '../translations/ru.json'
 import { Page1 } from './pages/Page1'
 import { Page2 } from './pages/Page2'
 import { Page3 } from './pages/Page3'
 import { Page4 } from './pages/Page4'
 import { Page5 } from './pages/Page5'
 import { Page6 } from './pages/Page6'
+import router from '@/router';
 
 export default createStore({
   state: {
@@ -67,7 +70,7 @@ export default createStore({
     }
   },
   actions: {
-    sendList({state}){
+    sendList({state}, btn){
     const templateParams = {}
     for (let i = 1; i <= state.maxPagePosition; i++){
       const currentPage = state[`Page${i}`].result
@@ -78,13 +81,15 @@ export default createStore({
       }
     }
     const templateID = state.locales.currentLocale === 'en' ? 'template_pjtftdi' : 'template_my5o9op'
-    
+    btn.disabled = true
+    btn.textContent = state.locales.currentLocale === 'en' ? enLangDoc.sending : ruLangDoc.sending
     emailjs.send('default_service', templateID, templateParams, 'zUKK0PowPidRu01QY')
-    .then(function(response) {
-      console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-      console.log('FAILED...', error);
-    });
+      .then(response => {
+        router.push('/thanks')
+      }, error => {
+        btn.disabled = false
+        btn.textContent = state.locales.currentLocale === 'en' ? enLangDoc.managmentButtonSendEmail : ruLangDoc.managmentButtonSendEmail
+      });
     },
   },
   modules: {
