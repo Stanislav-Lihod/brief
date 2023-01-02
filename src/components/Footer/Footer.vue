@@ -9,10 +9,13 @@
     <div class="container">
       <a href="mailto:tatka.d98@gmail.com" class="email">tatka.d98@gmail.com</a>
       <div class="social">
-        <a href="#"><img src="@/assets/img/social/linkedin.svg" alt="linkedin"></a>
-        <a href="#"><img src="@/assets/img/social/instagram.svg" alt="linkedin"></a>
-        <a href="#"><img src="@/assets/img/social/telegram.svg" alt="linkedin"></a>
-        <a href="#"><img src="@/assets/img/social/behance.svg" alt="linkedin"></a>
+        <a href="https://www.linkedin.com/in/tatkad/"><img src="@/assets/img/social/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.instagram.com/tatka_lih/"><img src="@/assets/img/social/instagram.svg" alt="Instagram"></a>
+        <a href="https://t.me/Tatkalih"><img src="@/assets/img/social/telegram.svg" alt="Telegram"></a>
+        <a href="https://www.behance.net/tatkad"><img src="@/assets/img/social/behance.svg" alt="Behance"></a>
+      </div>
+      <div class="developer">
+        {{$t('development')}}: <a href="https://www.linkedin.com/in/s-lihi/">Stanislav Lihodievski</a>
       </div>
     </div>
   </footer>
@@ -25,6 +28,8 @@
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/style/variables.scss';
+
 footer{
   background-image: url('@/assets/img/footer/bgFooter.png');
   background-repeat: no-repeat;
@@ -41,11 +46,24 @@ footer{
     line-height: 72px;
     text-decoration: none;
 
-    // @media #{$mediaSmallQuery} {
-    //   font-size:20px;
-    // }
+    @media #{$mediaSmallQuery} {
+      font-size:20px;
+    }
   }
 
+  .developer{
+    color: #022437;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+    a{
+      color: #022437;
+
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
   .social{
     margin-top: 48px;
     margin-bottom: 72px;
@@ -70,7 +88,6 @@ footer{
   margin-bottom: 34px;
 
   h3{
-    font-family: 'Anton', sans-serif;
     color: #F1931B;
     font-size: 44px;
     line-height: 1.5;
@@ -81,5 +98,15 @@ footer{
     font-size: 32px;
     line-height: 39px;
   }
+}
+
+html[lang='ru'] h3{
+  font-family: 'Breaf', sans-serif;
+  text-shadow: 1px 1px 8px rgb(0 0 0 / 40%);
+  letter-spacing: 2px;
+  font-size: 50px;
+}
+html[lang='en'] h3{
+  font-family: 'Anton', sans-serif;
 }
 </style>

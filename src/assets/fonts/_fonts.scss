@@ -1,4 +1,10 @@
 @font-face {
+  font-family: "Breaf"; 
+  src: url('@/assets/fonts/breaf-cyrillic.woff2') format("woff2"); 
+  font-weight: 400; 
+}
+
+@font-face {
   font-family: "Anton"; 
   src: url('@/assets/fonts/Anton-Regular.ttf') format("truetype"); 
   font-weight: 400; 

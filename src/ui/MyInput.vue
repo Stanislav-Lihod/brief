@@ -1,15 +1,17 @@
 <template>
   <input 
+  :class="{'required':required}"
   :type="item.type" 
-  :required="item.required" 
+  :required="required" 
   :name="item.name" 
   :placeholder="item.placeholder[$store.state.locales.currentLocale] ? item.placeholder[$store.state.locales.currentLocale] : item.placeholder['en']"
   :value="`${$store.state[$store.state.pageModule].result[item.name]}`" 
-  @input="$store.commit('setValue',{name: item.name, value: $event.target.value})"
+  @input="changeInput"
   >
 </template>
 
 <script>
+  import * as EmailValidator from 'email-validator';
   export default {
     name: 'my-input',
     props:{
@@ -18,6 +20,27 @@
         required: true
       }
     },
+    data(){
+      return{ 
+        required: this.item.required ?? false,
+        currentValue: this.$store.state[this.$store.state.pageModule].result[this.item.name]
+      } 
+    },
+    methods: {
+      changeInput(event){
+        this.$store.commit('setValue',{name: this.item.name, value: event.target.value})
+        this.checkValidInput(event.target.value)
+      },
+      checkValidInput(value){
+        this.required = (value).trim().length >= 3 ? false : this.item.required
+        if(this.item.type === 'email'){
+          return this.required = EmailValidator.validate(value) ? false : this.item.required
+        }
+      }
+    },
+    mounted(){
+      this.checkValidInput(this.currentValue);
+    }
   }
 </script>
 
@@ -40,6 +63,10 @@ input{
 
     &:focus{
       box-shadow: 0px 0px 20px 4px rgba($color: #F1931B, $alpha: 0.3);
+    }
+
+    &.required{
+      box-shadow: 0px 0px 20px 4px rgba($color: #f1581b, $alpha: 0.6);
     }
   }
 }

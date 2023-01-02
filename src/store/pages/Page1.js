@@ -21,8 +21,8 @@ export const Page1 = {
       { 
         name: 'name',
         placeholder: {
-          en: 'Name',
-          ru: 'Имя',
+          en: 'Name *',
+          ru: 'Имя *',
         },
         type: 'text',
         required: true
@@ -30,8 +30,8 @@ export const Page1 = {
       { 
         name: 'email',
         placeholder: {
-          en: 'Email',
-          ru: 'Email',
+          en: 'Email *',
+          ru: 'Email *',
         },
         type: 'email',
         required: true

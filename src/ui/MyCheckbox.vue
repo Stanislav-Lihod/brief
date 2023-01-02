@@ -25,6 +25,7 @@
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
 .checkbox-container{
   display: flex;
   flex-direction: column;
@@ -50,6 +51,11 @@
     font-size: 20px;
     line-height: 24.3px;
     cursor: pointer;
+    text-align: left;
+
+    @media #{$mediaSmallQuery} {
+      align-items: flex-start;
+    }
 
     &::before{
       content: '';
@@ -68,6 +74,5 @@
       }
     }
   }
-
 }
 </style>

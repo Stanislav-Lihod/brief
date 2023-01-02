@@ -1,3 +1,5 @@
+@import '@/assets/style/variables.scss';
+
 @keyframes planetMotion {
   0%{transform: translateY(0);}
   50%{transform: translateY(60px) scale(.92);}
@@ -32,6 +34,10 @@
     right: 5px;
     top: 175px;
     animation: planetMotion 9s infinite ease;
+
+    @media #{$mediaSmallQuery} {
+      width: 13vw;
+    }
   }
 
   &__second{
@@ -41,6 +47,10 @@
     height: 12.7vw;
     min-height: 150px;
     animation: planetMotionReverse 10s infinite ease;
+
+    @media #{$mediaSmallQuery} {
+      width: 35vw;
+    }
   }
 
   &__three{

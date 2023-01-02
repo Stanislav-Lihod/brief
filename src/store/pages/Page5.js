@@ -41,7 +41,7 @@ export const Page5 = {
       },
       {
         name:'understand your design needs',
-        placeholder:{
+        label:{
           en: 'What do you think would better understand your design needs?',
           ru: 'Как вы думаете, что лучше понять ваши потребности дизайна?'
         },

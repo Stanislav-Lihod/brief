@@ -18,7 +18,7 @@
       <div class="header-content">
         <h1>{{$t('headerTitle')}}</h1>
         <p>{{$t('headerDescription')}}</p>
-        <my-button @click="startQuiz" style="margin-top:8vw;">{{$t('headerButton')}}</my-button>
+        <my-button @click="startQuiz" style="margin-top:8vw;" :class="{'rocket': true}">{{$t('headerButton')}}</my-button>
       </div>
     </div>
   </header>
@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/style/variables.scss';
 
 header{
   background-image: url(@/assets/bgHeader.png);
@@ -55,9 +56,15 @@ header{
   height: 846px;
   position: relative;
 
+  @media #{$mediaSmallQuery} {
+    height: 180vw;
+    max-height: 846px;
+  }
+
   .locale{
     position: absolute;
-    right: 40px;    
+    right: 40px;   
+    z-index: 10; 
 
     &-container{
       transform: translateY(-60px);
@@ -115,19 +122,43 @@ header{
       margin: 0 auto;
       position: relative;
 
+      @media #{$mediaSmallQuery} {
+        padding-top: 50vw;
+      }
+
       h1{
-        font-family: 'Anton', sans-serif;
         font-size: 80px;
         line-height: 1.5;
         margin-bottom: 48px;
+        text-shadow: 1px 1px 8px rgb(0 0 0 / 40%);
+        letter-spacing: 2px;
+
+        @media #{$mediaSmallQuery} {
+          font-size: 30px;
+          line-height: 35px;
+        }
       }
 
       p{
-        font-size: 32px;
-        line-height: 39px;
+        font-size: 29px;
+        line-height: 37px;
         color: #F1931B;
+
+        @media #{$mediaSmallQuery} {
+          font-size: 20px;
+          line-height: 24px;
+        }
       }
     }
   }
+}
+
+html[lang='ru'] h1{
+  font-family: 'Breaf', sans-serif;
+  font-size: 100px;
+  line-height: 1.1;
+}
+html[lang='en'] h1{
+  font-family: 'Anton', sans-serif;
 }
 </style>

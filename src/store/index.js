@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import emailjs from '@emailjs/browser';
 import { Page1 } from './pages/Page1'
 import { Page2 } from './pages/Page2'
 import { Page3 } from './pages/Page3'
@@ -23,8 +24,10 @@ export default createStore({
   },
   mutations: {
     setPagePosition(state, value){
-      if (value >=1 && value <= state.maxPagePosition) {
-        state.pagePosition = value
+      if ([...document.querySelectorAll('input')].every(input => !input.required)) {
+        if (value >=1 && value <= state.maxPagePosition) {
+          state.pagePosition = value
+        }
       }
     },
     setProgress(state){
@@ -51,26 +54,37 @@ export default createStore({
         localStorage.setItem('locale', payload)
         state.locales.currentLocale = payload 
         state.locales.possibleLocales = state.locales.possibleLocales.reverse() 
+        document.querySelector('html')?.setAttribute('lang', payload)
         this.commit('setInfo')
       }
     },
     setLocale(state){
       localStorage.getItem('locale') ? state.locales.currentLocale = localStorage.getItem('locale') : null
-      if (state.locales.currentLocale === 'ru') state.locales.possibleLocales = state.locales.possibleLocales.reverse() 
+      if (state.locales.currentLocale === 'ru') {
+        state.locales.possibleLocales = state.locales.possibleLocales.reverse()
+        document.querySelector('html')?.setAttribute('lang', state.locales.currentLocale)
+      }
     }
   },
   actions: {
-     sendList({state}){
-      const body = {}
-      for (let i = 1; i <= state.maxPagePosition; i++){
-        const currentPage = state[`Page${i}`].result
-        for (const key in currentPage) {
-          if (currentPage[key] && currentPage[key] != '') {
-            body[key] ? body[key + Math.random() * 100] = currentPage[key] : body[key] = currentPage[key]
-          }
+    sendList({state}){
+    const templateParams = {}
+    for (let i = 1; i <= state.maxPagePosition; i++){
+      const currentPage = state[`Page${i}`].result
+      for (const key in currentPage) {
+        if (currentPage[key] && currentPage[key] != '') {
+          templateParams[key] ? templateParams[key + Math.random() * 100] = currentPage[key] : templateParams[key] = currentPage[key]
         }
       }
-     console.log(JSON.stringify(body));
+    }
+    const templateID = state.locales.currentLocale === 'en' ? 'template_pjtftdi' : 'template_my5o9op'
+    
+    emailjs.send('default_service', templateID, templateParams, 'zUKK0PowPidRu01QY')
+    .then(function(response) {
+      console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+      console.log('FAILED...', error);
+    });
     },
   },
   modules: {

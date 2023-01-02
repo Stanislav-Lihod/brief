@@ -9,6 +9,8 @@
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/style/variables.scss";
+
 button{
   font-family: Montserrat, Helvetica, Arial, sans-serif;
   padding: 14px 32px;
@@ -20,9 +22,31 @@ button{
   color: #FFFFFF;
   transition: .3s;
   cursor: pointer;
+  position: relative;
+
+  @media #{$mediaSmallQuery} {
+    font-size: 20px;
+    line-height: 24px;
+  }
 
   &:hover{
     box-shadow: 0px 0px 20px 4px rgba($color: #F1931B, $alpha: 0.3);
+  }
+
+  &.rocket{
+    &::after{
+      content: '';
+      background-image: url(@/assets/img/rocket.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 61px;
+      height: 40px;
+      display: block;
+      position: absolute;
+      right: -25px;
+      top: -25px;
+      transform: rotate(-30deg);
+    }
   }
 }
 </style>
